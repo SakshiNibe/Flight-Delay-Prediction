@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SkyPredict AI | Flight Delay Prediction</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- Header -->
+    <header class="navbar">
+
+        <div class="logo">
+            ✈️ <span>SkyPredict</span>
+        </div>
+
+        <div class="ai-badge">
+            ● AI Powered
+        </div>
+
+    </header>
+
+
+    <!-- Main -->
+    <main class="main-content">
+
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <div class="small-title">
+                    ✦ SMART FLIGHT ANALYTICS
+                </div>
+
+                <h1>
+                    Predict Flight
+                    <span>Delays</span>
+                    Before They Happen.
+                </h1>
+
+                <p>
+                    Enter your flight details and our machine learning
+                    model will estimate the probability of a delay.
+                </p>
+
+                <div class="features">
+
+                    <div>
+                        <strong>AI</strong>
+                        <small>Powered Prediction</small>
+                    </div>
+
+                    <div>
+                        <strong>RF</strong>
+                        <small>Random Forest</small>
+                    </div>
+
+                    <div>
+                        <strong>24/7</strong>
+                        <small>Instant Results</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Prediction Card -->
+            <div class="prediction-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Flight Details</h2>
+                        <p>Enter information below</p>
+                    </div>
+
+                    <div class="plane-icon">
+                        ✈
+                    </div>
+
+                </div>
+
+
+                <form action="/predict" method="POST">
+
+
+                    <!-- Airline -->
+                    <div class="form-group">
+
+                        <label>
+                            Airline
+                        </label>
+
+                        <select name="airline" required>
+
+                            <option value="">
+                                Select Airline
+                            </option>
+
+                            <option value="0">
+                                Air India
+                            </option>
+
+                            <option value="1">
+                                IndiGo
+                            </option>
+
+                            <option value="2">
+                                SpiceJet
+                            </option>
+
+                            <option value="3">
+                                Vistara
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="two-column">
+
+                        <!-- Source -->
+                        <div class="form-group">
+
+                            <label>
+                                From
+                            </label>
+
+                            <select name="source" required>
+
+                                <option value="">
+                                    Departure
+                                </option>
+
+                                <option value="0">
+                                    Mumbai
+                                </option>
+
+                                <option value="1">
+                                    Delhi
+                                </option>
+
+                                <option value="2">
+                                    Pune
+                                </option>
+
+                                <option value="3">
+                                    Bengaluru
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Destination -->
+                        <div class="form-group">
+
+                            <label>
+                                To
+                            </label>
+
+                            <select name="destination" required>
+
+                                <option value="">
+                                    Destination
+                                </option>
+
+                                <option value="0">
+                                    Delhi
+                                </option>
+
+                                <option value="1">
+                                    Mumbai
+                                </option>
+
+                                <option value="2">
+                                    Hyderabad
+                                </option>
+
+                                <option value="3">
+                                    Chennai
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="two-column">
+
+                        <!-- Day -->
+                        <div class="form-group">
+
+                            <label>
+                                Travel Day
+                            </label>
+
+                            <input
+                                type="number"
+                                name="day"
+                                min="1"
+                                max="31"
+                                placeholder="15"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Month -->
+                        <div class="form-group">
+
+                            <label>
+                                Month
+                            </label>
+
+                            <input
+                                type="number"
+                                name="month"
+                                min="1"
+                                max="12"
+                                placeholder="07"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Time -->
+                    <div class="form-group">
+
+                        <label>
+                            Departure Time
+                            <span>24-hour format</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="departure_time"
+                            maxlength="4"
+                            pattern="[0-9]{4}"
+                            placeholder="e.g. 1430"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button type="submit">
+
+                        <span>Predict Delay</span>
+
+                        <b>→</b>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        © 2026 SkyPredict AI · Machine Learning Flight Analytics
+    </footer>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SkyPredict AI | Prediction</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- Navbar -->
+    <header class="navbar">
+
+        <div class="logo">
+            ✈️ <span>SkyPredict</span>
+        </div>
+
+        <div class="ai-badge">
+            ● AI Powered
+        </div>
+
+    </header>
+
+
+    <!-- Result -->
+    <main class="result-page">
+
+        <div class="result-card">
+
+            <div class="result-plane">
+                ✈
+            </div>
+
+            <p class="result-label">
+                PREDICTION COMPLETE
+            </p>
+
+            <h1>
+                {{ prediction }}
+            </h1>
+
+
+            <!-- Probability -->
+            <div class="probability">
+
+                <div class="probability-number">
+                    {{ probability }}%
+                </div>
+
+                <div>
+
+                    <strong>
+                        Delay Probability
+                    </strong>
+
+                    <p>
+                        Based on the provided flight details
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Progress Bar -->
+            <div class="progress">
+
+                <div class="progress-bar"
+                     id="progressBar">
+                </div>
+
+            </div>
+
+
+            <!-- Back Button -->
+            <a href="/" class="back-button">
+                ← Predict Another Flight
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+        © 2026 SkyPredict AI · Machine Learning Flight Analytics
+    </footer>
+
+</div>
+
+
+<!-- Progress Bar Script -->
+<script>
+
+    const probability =
+        Number("{{ probability|default(0) }}");
+
+    const progressBar =
+        document.getElementById("progressBar");
+
+    progressBar.style.width =
+        probability + "%";
+
+</script>
+
+</body>
+
+</html>
+
